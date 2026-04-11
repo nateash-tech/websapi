@@ -8,7 +8,8 @@ const CategoryFilters = ({ activeCategory, onSelect }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/categories');
+        const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '';
+        const res = await fetch(`${baseUrl}/api/categories`);
         const data = await res.json();
         // Keep "Ekonomis" but don't add "Semua Kategori"
         setCategories(data);

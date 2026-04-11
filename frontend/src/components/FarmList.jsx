@@ -8,7 +8,8 @@ const FarmList = ({ onSelectFarm, activeFarm }) => {
   useEffect(() => {
     const fetchFarms = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/farms');
+        const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '';
+        const res = await fetch(`${baseUrl}/api/farms`);
         const data = await res.json();
         setFarms(data);
       } catch (err) {

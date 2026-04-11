@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { createClient } = require('@supabase/supabase-client');
+const { Pool } = require('pg');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,22 +10,19 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Supabase Client
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Postgres Pool
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 // 1. Get Categories
 app.get('/api/categories', async (req, res) => {
   try {
-    const { data, error } = await supabase
-      .from('categories')
-      .select('*')
-      .order('id', { ascending: true });
-
-    if (error) throw error;
-    res.json(data);
+    const result = await pool.query('SELECT * FROM categories ORDER BY id ASC');
+    res.json(result.rows);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -34,24 +31,35 @@ app.get('/api/categories', async (req, res) => {
 app.get('/api/products', async (req, res) => {
   try {
     const { category, farm, search } = req.query;
+    
+    let query = `
+      SELECT p.*, c.name as category_name, f.name as farm_name 
+      FROM products p
+      LEFT JOIN categories c ON p.category_id = c.id
+      LEFT JOIN farms f ON p.farm_id = f.id
+      WHERE p.is_active = true
+    `;
+    const params = [];
 
-    let query = supabase
-      .from('products')
-      .select(`
-        *,
-        categories (name),
-        farms (name)
-      `);
+    if (category) {
+      params.push(category);
+      query += ` AND c.name = $${params.length}`;
+    }
+    if (farm) {
+      params.push(farm);
+      query += ` AND f.name = $${params.length}`;
+    }
+    if (search) {
+      params.push(`%${search}%`);
+      query += ` AND p.kode_unik ILIKE $${params.length}`;
+    }
 
-    if (category) query = query.eq('category', category);
-    if (farm) query = query.eq('farm_name', farm);
-    if (search) query = query.ilike('kode_unik', `%${search}%`);
+    query += ` ORDER BY p.id ASC`;
 
-    const { data, error } = await query.order('id', { ascending: true });
-
-    if (error) throw error;
-    res.json(data);
+    const result = await pool.query(query, params);
+    res.json(result.rows);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -60,26 +68,29 @@ app.get('/api/products', async (req, res) => {
 app.get('/api/products/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { data, error } = await supabase
-      .from('products')
-      .select(`
-        *,
-        categories (name),
-        farms (*)
-      `)
-      .eq('id', id)
-      .single();
-
-    if (error) throw error;
-    res.json(data);
+    const query = `
+      SELECT p.*, c.name as category_name, f.name as farm_name, f.location as farm_location
+      FROM products p
+      LEFT JOIN categories c ON p.category_id = c.id
+      LEFT JOIN farms f ON p.farm_id = f.id
+      WHERE p.id = $1
+    `;
+    const result = await pool.query(query, [id]);
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+    
+    res.json(result.rows[0]);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 });
 
 // Health check
-app.get('/', (res) => {
-  res.send('nusaQu API is running...');
+app.get('/', (req, res) => {
+  res.send('nusaQu API (Postgres) is running...');
 });
 
 // Export for Vercel
