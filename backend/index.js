@@ -93,6 +93,11 @@ app.get('/', (req, res) => {
   res.send('nusaQu API (Postgres) is running...');
 });
 
+// Pool error handling
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+});
+
 // Export for Vercel
 module.exports = app;
 
