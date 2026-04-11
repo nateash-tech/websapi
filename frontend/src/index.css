@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #f59e0b;
+  --secondary: #F97316;
+}
+
+@theme {
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #f59e0b;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
+  --color-primary-950: #451a03;
+
+  --color-secondary: #F97316;
+  --color-secondary-light: #FB923C;
+  --color-secondary-dark: #EA580C;
+
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  @apply bg-[#FFFBF0] text-slate-800 font-sans antialiased overflow-x-hidden;
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(245,158,11,0.08)] rounded-3xl;
+}
+
+.btn-premium {
+  @apply px-8 py-4 bg-gradient-to-r from-primary-600 to-orange-500 text-white font-bold rounded-2xl shadow-lg shadow-primary-200/50 transition-all hover:shadow-primary-300/80 active:scale-95 hover:-translate-y-1;
+}
+
+.nav-link {
+  @apply text-sm font-semibold text-slate-600 hover:text-primary-600 transition-colors uppercase tracking-wider;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-amber-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-amber-200 rounded-full hover:bg-amber-300;
+}
