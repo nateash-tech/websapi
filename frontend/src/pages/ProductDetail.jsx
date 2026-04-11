@@ -12,7 +12,11 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+        const baseUrl = window.location.hostname === 'localhost' 
+          ? 'http://localhost:5000' 
+          : ''; // Relative to same domain in production
+        
+        const res = await fetch(`${baseUrl}/api/products/${id}`);
         if (!res.ok) throw new Error('Product not found');
         const data = await res.json();
         setProduct(data);

@@ -11,7 +11,11 @@ const ProductGrid = ({ categoryId, farmName, searchQuery }) => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        let url = `http://localhost:5000/api/products?`;
+        const baseUrl = window.location.hostname === 'localhost' 
+          ? 'http://localhost:5000' 
+          : ''; // Relative to same domain in production
+        
+        let url = `${baseUrl}/api/products?`;
         if (categoryId && categoryId !== 'Semua Kategori') url += `category=${categoryId}&`;
         if (farmName && farmName !== 'Semua Kandang') url += `farm=${farmName}&`;
         if (searchQuery) url += `search=${searchQuery}&`;
