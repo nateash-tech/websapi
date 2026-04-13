@@ -42,21 +42,21 @@ const FeaturePanel = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        className="grid grid-cols-4 gap-2 sm:gap-4"
       >
         {features.map((f) => (
           <motion.div
             key={f.title}
             variants={item}
-            className="bg-[#B47B00] rounded-2xl px-5 py-6 flex flex-col items-center text-center gap-3 shadow-xl border border-white/10 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-default"
+            className="bg-[#B47B00] rounded-2xl px-1 sm:px-5 py-4 sm:py-6 flex flex-col items-center text-center gap-1 sm:gap-3 shadow-xl border border-white/10 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-default"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl shadow-inner border border-white/5 text-[#FCD34D]">
+            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center text-xl sm:text-3xl shadow-inner border border-white/5 text-[#FCD34D]">
               {f.icon}
             </div>
-            <h3 className="font-extrabold text-white text-base tracking-tight leading-tight">
+            <h3 className="font-extrabold text-white text-[10px] sm:text-base tracking-tight leading-tight">
               {f.title}
             </h3>
-            <p className="text-white/80 text-xs font-medium leading-relaxed">
+            <p className="hidden sm:block text-white/80 text-xs font-medium leading-relaxed">
               {f.desc}
             </p>
           </motion.div>
