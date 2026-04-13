@@ -44,7 +44,7 @@ const ProductGrid = ({ categoryId, farmName, searchQuery, limit }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 w-full">
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
         {(limit ? products.slice(0, limit) : products).map((product) => (
           <motion.div
             key={product.id}
@@ -55,7 +55,7 @@ const ProductGrid = ({ categoryId, farmName, searchQuery, limit }) => {
             className="group bg-[#FDF5E6] rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative cursor-pointer"
           >
             {/* Top Badge (Kode Unik) */}
-            <div className="relative h-48 bg-black/20">
+            <div className="relative h-32 sm:h-48 bg-black/20">
                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#B47B00] text-white px-6 py-1 rounded-b-2xl font-black text-sm z-10 text-center shadow-md">
                   <div className="text-[10px] text-white/60 font-bold uppercase tracking-tighter">{product.jenis}</div>
                   {product.kode_unik}
@@ -71,10 +71,10 @@ const ProductGrid = ({ categoryId, farmName, searchQuery, limit }) => {
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-3 sm:p-6">
               <div className="flex flex-col mb-4">
-                <h3 className="text-xl font-black text-[#064E3B] line-clamp-1 mb-1">{product.name}</h3>
-                <span className="text-[#B47B00] font-black text-2xl">
+                <h3 className="text-xs sm:text-lg md:text-xl font-black text-[#064E3B] line-clamp-1 mb-0.5 sm:mb-1">{product.name}</h3>
+                <span className="text-[#B47B00] font-black text-sm sm:text-xl md:text-2xl">
                   {new Intl.NumberFormat('id-ID', {
                     style: 'currency',
                     currency: 'IDR',
@@ -84,14 +84,14 @@ const ProductGrid = ({ categoryId, farmName, searchQuery, limit }) => {
               </div>
 
               {/* Farm Badge */}
-              <div className="bg-[#064E3B]/5 rounded-xl p-3 flex items-center gap-2 mb-5 border border-[#064E3B]/10">
-                <span className="text-sm">🏠</span>
-                <span className="text-[10px] font-black text-[#064E3B]/70 uppercase tracking-widest line-clamp-1">{product.farm_name}</span>
+              <div className="bg-[#064E3B]/5 rounded-lg sm:rounded-xl p-1.5 sm:p-3 flex items-center gap-1 sm:gap-2 mb-3 sm:mb-5 border border-[#064E3B]/10">
+                <span className="text-xs sm:text-sm">🏠</span>
+                <span className="text-[8px] sm:text-[10px] font-black text-[#064E3B]/70 uppercase tracking-widest line-clamp-1">{product.farm_name}</span>
               </div>
 
               {/* Action Button */}
-              <button className="w-full bg-[#064E3B] border-b-4 border-[#042F2E] hover:bg-[#065F46] text-white py-4 rounded-2xl font-black text-sm flex items-center justify-center gap-3 transition-all shadow-lg active:translate-y-1 active:border-b-0">
-                <span className="text-xl">💬</span>
+              <button className="w-full bg-[#064E3B] border-b-2 sm:border-b-4 border-[#042F2E] hover:bg-[#065F46] text-white py-2 sm:py-4 rounded-xl sm:rounded-2xl font-black text-[9px] sm:text-sm flex items-center justify-center gap-1.5 sm:gap-3 transition-all shadow-lg active:translate-y-1 active:border-b-0">
+                <span className="text-sm sm:text-xl">💬</span>
                 HUBUNGI KAMI
               </button>
             </div>
