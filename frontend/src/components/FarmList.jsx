@@ -58,7 +58,7 @@ const FarmList = ({ onSelectFarm, activeFarm }) => {
         </div>
 
         <div className="bg-[#FDF5E6]/10 backdrop-blur-md rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-10 w-full max-w-6xl border border-white/20 shadow-inner">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6 md:gap-10 w-full">
             {farms.map((farm, index) => (
               <motion.button
                 key={farm.id}
@@ -69,13 +69,13 @@ const FarmList = ({ onSelectFarm, activeFarm }) => {
                 onClick={() => onSelectFarm(farm.name)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`group flex items-center gap-6 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-4 transition-all text-left w-full ${
+                className={`group flex flex-col sm:flex-row items-center gap-2 sm:gap-6 p-3 sm:p-6 md:p-10 rounded-2xl sm:rounded-[2rem] md:rounded-[2.5rem] border-4 transition-all text-center sm:text-left w-full ${
                   activeFarm === farm.name
                     ? 'bg-[#FDF5E6] border-white shadow-2xl text-[#064E3B] scale-[1.02] z-10'
                     : 'bg-[#FDF5E6]/80 border-white/20 shadow-xl hover:bg-[#FDF5E6] hover:shadow-2xl'
                 }`}
               >
-                <div className="w-16 h-16 md:w-24 md:h-24 bg-white rounded-3xl md:rounded-[2rem] flex items-center justify-center p-3 md:p-4 shadow-inner border border-slate-50 flex-none overflow-hidden">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 bg-white rounded-xl sm:rounded-3xl md:rounded-[2rem] flex items-center justify-center p-2 sm:p-3 md:p-4 shadow-inner border border-slate-50 flex-none overflow-hidden">
                   <img 
                       src={farm.logo_url || "https://cdn-icons-png.flaticon.com/512/619/619153.png"} 
                       alt="farm house icon" 
@@ -84,7 +84,7 @@ const FarmList = ({ onSelectFarm, activeFarm }) => {
                       }`}
                   />
                 </div>
-                <p className={`flex-1 font-[1000] text-xs md:text-base uppercase tracking-wider leading-tight transition-colors ${
+                <p className={`flex-1 font-[1000] text-[9px] sm:text-xs md:text-base uppercase tracking-wider leading-tight transition-colors ${
                   activeFarm === farm.name ? 'text-[#064E3B]' : 'text-[#064E3B]/70'
                 }`}>
                   {farm.name}
