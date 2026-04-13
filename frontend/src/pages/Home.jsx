@@ -48,9 +48,7 @@ const Home = () => {
             <div className="w-24 h-2 bg-white/30 rounded-full"></div>
           </div>
 
-          <div className="bg-[#FDF5E6]/10 backdrop-blur-md rounded-[2.5rem] md:rounded-[4rem] p-4 md:p-10 w-full max-w-6xl border border-white/20 shadow-inner">
-             <ProductGrid limit={6} />
-          </div>
+          <ProductGrid limit={6} />
 
           <motion.button
             whileHover={{ scale: 1.05 }}
