@@ -42,9 +42,9 @@ const ProductGrid = ({ categoryId, farmName, searchQuery, limit }) => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 w-full">
+    <div className="max-w-7xl mx-auto px-1 py-4 md:px-4 md:py-8 w-full">
       {/* Product Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8">
         {(limit ? products.slice(0, limit) : products).map((product) => (
           <motion.div
             key={product.id}

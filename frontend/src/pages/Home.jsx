@@ -39,9 +39,9 @@ const Home = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#B47B00] rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-12 border-b-[8px] md:border-b-[12px] border-black/10 shadow-2xl w-full flex flex-col items-center overflow-hidden"
+          className="bg-[#B47B00] rounded-[2.5rem] md:rounded-[4rem] px-2 py-6 md:p-12 border-b-[8px] md:border-b-[12px] border-black/10 shadow-2xl w-full flex flex-col items-center overflow-hidden"
         >
-          <div className="flex flex-col items-center mb-10 md:mb-14">
+          <div className="flex flex-col items-center mb-4 md:mb-8">
             <p className="text-[10px] md:text-sm font-[1000] text-white/70 uppercase tracking-[0.4em] mb-4 text-center">
               KATALOG PRODUK TERBARU
             </p>
