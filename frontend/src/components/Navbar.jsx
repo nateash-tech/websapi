@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, ChevronDown } from 'lucide-react';
+import { Search, X, ChevronDown, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -47,13 +47,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-3">
         
         {/* Main Row */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
 
           {/* Logo */}
           <Link to="/">
             <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0 cursor-pointer flex items-center gap-2">
               <img src="/Logo%20Farm.png" alt="Indopalm Logo" className="h-10 w-auto" />
-              <span className="text-2xl font-black text-white tracking-tighter">
+              <span className="hidden sm:block text-2xl font-black text-white tracking-tighter">
                 indopalm<span className="text-[#FCD34D]">Qu</span>
               </span>
             </motion.div>
@@ -83,13 +83,14 @@ const Navbar = () => {
           {/* Filter Button */}
           <button
             onClick={() => setFilterOpen(!filterOpen)}
-            className={`flex items-center gap-2 px-5 py-3 font-extrabold rounded-xl border-b-4 transition-all ${
+            className={`flex items-center gap-2 px-3 sm:px-5 py-3 font-extrabold rounded-xl border-b-4 transition-all ${
               filterOpen
                 ? 'bg-[#042F2E] text-white border-black'
                 : 'bg-[#064E3B] text-white border-[#042F2E] hover:bg-[#065F46]'
             }`}
           >
-            <span>Filter</span>
+            <Filter className="h-5 w-5 sm:hidden" />
+            <span className="hidden sm:inline">Filter</span>
           </button>
 
           {/* Search Button */}
