@@ -31,7 +31,7 @@ const Catalog = () => {
   const hasFilters = category !== 'Ekonomis' || farm !== 'Semua Kandang' || search !== '';
 
   return (
-    <div className="max-w-7xl mx-auto pb-24 px-4">
+    <div className="max-w-7xl mx-auto pb-8 px-4">
       {/* Unified Header (Back Button, Title, and Search Bar on One Line) */}
       <div className="py-4 flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-100 mb-4">
         <div className="flex items-center gap-4">
@@ -42,7 +42,7 @@ const Catalog = () => {
             <ChevronLeft className="w-5 h-5 stroke-[3px]" />
             Kembali
           </button>
-          <h2 className="text-xl md:text-2xl font-black text-blue-950 tracking-tight whitespace-nowrap">
+          <h2 className="text-xl md:text-2xl font-black text-white tracking-tight whitespace-nowrap">
             Kategori {category}
           </h2>
         </div>
@@ -75,12 +75,12 @@ const Catalog = () => {
       />
 
       {/* Simple Pagination Placeholder (Match Reference) */}
-      <div className="mt-16 flex justify-center items-center gap-2">
+      <div className="mt-8 flex justify-center items-center gap-2">
          {[1, 2, '»'].map((page, i) => (
            <button 
             key={i}
             className={`w-10 h-10 flex items-center justify-center rounded-lg font-bold text-sm transition-all ${
-              page === 1 ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-white border border-slate-200 text-blue-600 hover:border-blue-400'
+              page === 1 ? 'bg-[#FBB016] text-white shadow-lg shadow-orange-500/20' : 'bg-white border border-orange-100 text-[#FBB016] hover:bg-orange-50'
             }`}
            >
              {page}

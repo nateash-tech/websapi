@@ -2,36 +2,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: #f59e0b;
-  --secondary: #F97316;
+  --primary: #D4AF37; /* Metallic Gold as Primary */
+  --secondary: #92400E; /* Golden Brown */
 }
 
 @theme {
-  --color-primary-50: #fffbeb;
-  --color-primary-100: #fef3c7;
+  --color-primary-50: #fff9e5;
+  --color-primary-100: #faf1d6;
   --color-primary-200: #fde68a;
   --color-primary-300: #fcd34d;
   --color-primary-400: #fbbf24;
-  --color-primary-500: #f59e0b;
-  --color-primary-600: #d97706;
-  --color-primary-700: #b45309;
-  --color-primary-800: #92400e;
-  --color-primary-900: #78350f;
-  --color-primary-950: #451a03;
+  --color-primary-500: #D4AF37;
+  --color-primary-600: #B8860B;
+  --color-primary-700: #92400e;
+  --color-primary-800: #78350f;
+  --color-primary-900: #451a03;
 
-  --color-secondary: #F97316;
-  --color-secondary-light: #FB923C;
-  --color-secondary-dark: #EA580C;
+  --color-secondary: #92400E;
+  --color-secondary-light: #D4AF37;
+  --color-secondary-dark: #78350F;
 
   --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
 }
 
 body {
-  @apply bg-[#FFFBF0] text-slate-800 font-sans antialiased overflow-x-hidden;
+  @apply bg-[#7B4C00] text-[#FDF5E6] font-sans antialiased overflow-x-hidden; /* Mid-Brown Background (Warna Ke-3) */
 }
 
 .glass-card {
-  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(245,158,11,0.08)] rounded-3xl;
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-3xl;
 }
 
 .btn-premium {

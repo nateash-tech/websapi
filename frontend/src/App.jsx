@@ -16,10 +16,10 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-[#FFFBF0] font-sans text-slate-900 selection:bg-orange-100 selection:text-orange-900">
+      <div className="min-h-screen bg-[#7B4C00] font-sans text-[#FDF5E6] selection:bg-[#D4AF37]/20 selection:text-[#D4AF37]">
         {/* Scroll Progress Bar */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-orange-600 origin-left z-[100]"
+          className="fixed top-0 left-0 right-0 h-1 bg-[#D4AF37] origin-left z-[100]"
           style={{ scaleX }}
         />
 
@@ -32,14 +32,14 @@ function App() {
         </Routes>
 
         {/* Footer / Copyright */}
-        <footer className="py-12 bg-[#FFD9A0]/20 border-t border-orange-100 text-center">
+        <footer className="py-12 bg-[#B47B00] border-t border-[#8B4513]/20 text-center">
           <div className="mb-4">
-            <span className="text-6xl font-black text-orange-700/20 tracking-tighter select-none">
-              nusa<span className="text-orange-500/20">Qu</span>
+            <span className="text-6xl font-black text-white tracking-tighter select-none">
+              indopalm<span className="text-[#FCD34D]">Qu</span>
             </span>
           </div>
-          <p className="text-[10px] font-bold text-orange-900/30 uppercase tracking-[0.5em]">
-            © 2026 nusaQu • Premium Sacrificial Animals
+          <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.5em]">
+            © 2026 indopalmQu • Premium Sacrificial Animals
           </p>
         </footer>
       </div>

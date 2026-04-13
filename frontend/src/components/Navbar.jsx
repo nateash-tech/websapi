@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 
 const categories = ['Ekonomis', 'Premium', 'Medium', 'Kambing Domba', 'Sapi Bali'];
-const farms = ['Semua Kandang', 'Nusa Farm Tajurhalang', 'Mumbul Sari', 'Nusa Farm Ciseeng'];
+const farms = ['Semua Kandang', 'Indopalm Farm Tajurhalang', 'Mumbul Sari', 'Indopalm Farm Ciseeng'];
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,8 +41,8 @@ const Navbar = () => {
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${
       isScrolled
-        ? 'bg-[#FFD9A0]/90 backdrop-blur-xl border-b border-[#FFCF80]/40 shadow-lg'
-        : 'bg-[#FFD9A0] border-b border-[#FFCF80]/30'
+        ? 'bg-[#B47B00]/90 backdrop-blur-md border-b border-[#8B4513]/30 shadow-xl'
+        : 'bg-[#B47B00] border-b border-[#8B4513]/20'
     }`}>
       <div className="max-w-7xl mx-auto px-4 py-3">
         
@@ -51,9 +51,10 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/">
-            <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0 cursor-pointer">
-              <span className="text-3xl font-black text-orange-700 tracking-tighter">
-                nusa<span className="text-orange-500">Qu</span>
+            <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0 cursor-pointer flex items-center gap-2">
+              <img src="/Logo%20Farm.png" alt="Indopalm Logo" className="h-10 w-auto" />
+              <span className="text-2xl font-black text-white tracking-tighter">
+                indopalm<span className="text-[#FCD34D]">Qu</span>
               </span>
             </motion.div>
           </Link>
@@ -65,7 +66,7 @@ const Navbar = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearchClick()}
-              className="w-full pl-6 pr-20 py-3 rounded-xl text-slate-700 placeholder-slate-400 bg-white/90 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all shadow-sm"
+              className="flex-1 bg-white border border-black/10 rounded-xl px-4 py-2 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#064E3B]/30 transition-all text-sm w-full font-medium"
               placeholder="Cari Produk"
             />
             {filterOpen && (
@@ -84,8 +85,8 @@ const Navbar = () => {
             onClick={() => setFilterOpen(!filterOpen)}
             className={`flex items-center gap-2 px-5 py-3 font-extrabold rounded-xl border-b-4 transition-all ${
               filterOpen
-                ? 'bg-orange-500 text-white border-orange-700'
-                : 'bg-white text-slate-700 border-slate-200 hover:bg-orange-50'
+                ? 'bg-[#042F2E] text-white border-black'
+                : 'bg-[#064E3B] text-white border-[#042F2E] hover:bg-[#065F46]'
             }`}
           >
             <span>Filter</span>
@@ -94,7 +95,7 @@ const Navbar = () => {
           {/* Search Button */}
           <button
             onClick={handleSearchClick}
-            className="p-3 bg-orange-500 text-white rounded-xl shadow-lg shadow-orange-200 hover:bg-orange-600 transition-all"
+            className="p-3 bg-[#064E3B] text-white rounded-xl shadow-lg shadow-black/10 hover:bg-[#065F46] transition-all"
           >
             <Search className="h-6 w-6" />
           </button>
@@ -117,7 +118,7 @@ const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => { setCategoryOpen(!categoryOpen); setFarmOpen(false); }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl text-slate-700 font-semibold text-sm shadow-sm hover:bg-orange-50 transition-all border border-orange-200"
+                    className="flex items-center gap-2 px-4 py-2 bg-[#FBB016] rounded-xl text-black font-bold text-sm shadow-md hover:bg-[#FACC15] transition-all border border-black/10"
                   >
                     {selectedCategory}
                     <ChevronDown className={`h-4 w-4 transition-transform ${categoryOpen ? 'rotate-180' : ''}`} />
@@ -135,7 +136,7 @@ const Navbar = () => {
                           <button
                             key={cat}
                             onClick={() => { setSelectedCategory(cat); setCategoryOpen(false); }}
-                            className={`w-full text-left px-4 py-2.5 text-sm font-medium hover:bg-orange-50 transition-colors ${selectedCategory === cat ? 'text-orange-600 font-bold' : 'text-slate-700'}`}
+                            className={`w-full text-left px-4 py-2.5 text-sm font-medium hover:bg-white/5 transition-colors ${selectedCategory === cat ? 'text-[#D4AF37] font-bold' : 'text-[#FDF5E6]/70'}`}
                           >
                             {cat}
                           </button>
@@ -149,7 +150,7 @@ const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => { setFarmOpen(!farmOpen); setCategoryOpen(false); }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl text-slate-700 font-semibold text-sm shadow-sm hover:bg-orange-50 transition-all border border-orange-200"
+                    className="flex items-center gap-2 px-4 py-2 bg-[#FBB016] rounded-xl text-black font-bold text-sm shadow-md hover:bg-[#FACC15] transition-all border border-black/10"
                   >
                     {selectedFarm === 'Semua Kandang' ? 'Kandang' : selectedFarm.split(' ').slice(-1)[0]}
                     <ChevronDown className={`h-4 w-4 transition-transform ${farmOpen ? 'rotate-180' : ''}`} />
@@ -180,7 +181,7 @@ const Navbar = () => {
                 {/* Terapkan Button */}
                 <button 
                    onClick={handleSearchClick}
-                   className="px-5 py-2 bg-orange-500 text-white font-bold text-sm rounded-xl hover:bg-orange-600 transition-all shadow-sm"
+                   className="px-5 py-2 bg-[#064E3B] text-white font-bold text-sm rounded-xl hover:bg-[#065F46] transition-all shadow-sm"
                 >
                   Terapkan
                 </button>

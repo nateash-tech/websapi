@@ -48,15 +48,15 @@ const FeaturePanel = () => {
           <motion.div
             key={f.title}
             variants={item}
-            className="bg-white rounded-2xl px-5 py-6 flex flex-col items-center text-center gap-3 shadow-md border border-orange-100 hover:shadow-lg hover:border-orange-300 transition-all duration-300 cursor-default"
+            className="bg-[#B47B00] rounded-2xl px-5 py-6 flex flex-col items-center text-center gap-3 shadow-xl border border-white/10 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-default"
           >
-            <div className="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center text-3xl shadow-inner border border-orange-100">
+            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl shadow-inner border border-white/5 text-[#FCD34D]">
               {f.icon}
             </div>
-            <h3 className="font-extrabold text-orange-800 text-base tracking-tight leading-tight">
+            <h3 className="font-extrabold text-white text-base tracking-tight leading-tight">
               {f.title}
             </h3>
-            <p className="text-slate-500 text-xs font-medium leading-relaxed">
+            <p className="text-white/80 text-xs font-medium leading-relaxed">
               {f.desc}
             </p>
           </motion.div>

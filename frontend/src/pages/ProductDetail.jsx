@@ -34,7 +34,7 @@ const ProductDetail = () => {
   if (loading) {
     return (
       <div className="w-full py-20 flex justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#D4AF37]"></div>
       </div>
     );
   }
@@ -55,7 +55,7 @@ const ProductDetail = () => {
 
   const handleWhatsApp = () => {
     const phone = "6281545842432";
-    const message = `Hallo Admin nusaQu ..
+    const message = `Hallo Admin indopalmQu ..
 
 Ingin Bertanya Tentang Hewan Qurban :
 Kode : ${product.kode_unik}
@@ -86,15 +86,15 @@ Terima Kasih`;
       {/* Main Content: Two Columns */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-10">
         {/* Left Column: Product Branding Card */}
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="bg-white rounded-[2rem] overflow-hidden border border-orange-100 shadow-xl relative w-full"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-[#064E3B] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl relative w-full"
         >
           {/* Top Branding Badge */}
-          <div className="bg-orange-700 text-white pt-2 pb-5 px-8 text-center relative">
-             <div className="absolute top-0 right-10 w-20 h-20 bg-white/10 rounded-full -translate-y-10"></div>
-             <p className="text-[9px] font-bold text-orange-200 uppercase tracking-widest mb-1">{product.jenis}</p>
+          <div className="bg-[#D4AF37] text-black pt-2 pb-5 px-8 text-center relative">
+             <div className="absolute top-0 right-10 w-20 h-20 bg-black/10 rounded-full -translate-y-10"></div>
+             <p className="text-[9px] font-bold text-black/60 uppercase tracking-widest mb-1">{product.jenis}</p>
              <h3 className="text-3xl font-black tracking-tighter">{product.kode_unik}</h3>
           </div>
 
@@ -104,19 +104,19 @@ Terima Kasih`;
                {product.image_url ? (
                  <img src={product.image_url} alt={product.name} className="w-full h-full object-cover" />
                ) : (
-                 <div className="w-full h-full flex items-center justify-center bg-orange-50 text-4xl text-orange-200 font-black">nusaQu</div>
+                 <div className="w-full h-full flex items-center justify-center bg-[#D4AF37]/5 text-4xl text-[#D4AF37]/20 font-black">indopalmQu</div>
                )}
-            </div>
+             </div>
           </div>
 
           <div className="p-4 pt-2 text-center">
              <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-7 h-7 rounded-lg bg-orange-50 p-1 border border-orange-100 italic font-black text-orange-800 text-[6px] flex items-center justify-center">
-                   nusa
+                <div className="w-7 h-7 rounded-lg bg-white/5 p-1 border border-white/10 italic font-black text-[#FDF5E6] text-[6px] flex items-center justify-center text-center">
+                    indopalm
                 </div>
-                <div className="h-0.5 w-8 bg-orange-200"></div>
-                <div className="w-7 h-7 rounded-lg bg-orange-50 p-1 border border-orange-100 italic font-black text-orange-800 text-[6px] flex items-center justify-center">
-                   nusaQu
+                <div className="h-0.5 w-8 bg-[#D4AF37]/30"></div>
+                <div className="w-7 h-7 rounded-lg bg-white/5 p-1 border border-white/10 italic font-black text-[#FDF5E6] text-[6px] flex items-center justify-center text-center">
+                    indopalmQu
                 </div>
              </div>
              <p className="text-[6px] font-bold text-slate-400 uppercase tracking-[0.4em]">#IngatKurban #SolusiQurban</p>
@@ -130,16 +130,16 @@ Terima Kasih`;
            className="flex flex-col gap-6"
         >
           <div>
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-black text-blue-950 tracking-tight mb-2">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-black text-[#FDF5E6] tracking-tight mb-2">
               {product.name}
             </h1>
-            <div className="text-3xl font-black text-red-600">
+            <div className="text-3xl font-black text-[#D4AF37]">
                Rp {product.harga?.toLocaleString('id-ID')}
             </div>
           </div>
 
           <section>
-            <h3 className="text-sm font-black text-blue-950 uppercase tracking-wider border-b-2 border-orange-500 inline-block mb-4">
+            <h3 className="text-sm font-black text-[#FDF5E6] uppercase tracking-wider border-b-2 border-[#064E3B] inline-block mb-4">
               Detail Informasi :
             </h3>
             <ul className="space-y-2">
@@ -151,9 +151,9 @@ Terima Kasih`;
                 { label: 'Posisi', value: product.farm_name },
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
-                   <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1.5 flex-none"></div>
-                   <div className="text-slate-700 font-bold text-sm">
-                      <span className="text-slate-900">{item.label} : </span>
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mt-1.5 flex-none"></div>
+                   <div className="text-[#FDF5E6]/70 font-bold text-sm">
+                      <span className="text-[#FDF5E6]">{item.label} : </span>
                       {item.value}
                    </div>
                 </li>
@@ -162,24 +162,24 @@ Terima Kasih`;
           </section>
 
           <section>
-            <h3 className="text-[8px] font-black text-blue-950 uppercase tracking-widest mb-4 bg-slate-100 py-1 px-3 rounded-lg inline-block">
+            <h3 className="text-[8px] font-black text-[#FDF5E6] uppercase tracking-widest mb-4 bg-white/5 py-1 px-3 rounded-lg inline-block">
               Lihat Video Hewan Qurban Via Telegram
             </h3>
             <ul className="space-y-2">
-               <li className="flex items-center gap-2 text-[10px] font-bold text-slate-600">
+               <li className="flex items-center gap-2 text-[10px] font-bold text-[#FDF5E6]/70">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                  Video Sapi : <a href="#" className="text-blue-600 hover:underline">t.me/solusiqurban</a>
+                  Video Sapi : <a href="#" className="text-blue-400 hover:underline">t.me/solusiqurban</a>
                </li>
-               <li className="flex items-center gap-2 text-[10px] font-bold text-slate-600">
+               <li className="flex items-center gap-2 text-[10px] font-bold text-[#FDF5E6]/70">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                  Video Kambing & Domba : <a href="#" className="text-blue-600 hover:underline">t.me/solusiqurbannusaqu</a>
+                  Video Kambing & Domba : <a href="#" className="text-blue-400 hover:underline">t.me/solusiqurbandopalmqu</a>
                </li>
             </ul>
           </section>
 
-          <section className="bg-orange-50/50 rounded-2xl p-6 border border-orange-100">
-            <h3 className="text-[10px] font-black text-blue-950 uppercase tracking-wider mb-4 leading-tight">
-               Mengapa berqurban bersama Nusa Sentosa Farm?
+          <section className="bg-white/5 rounded-2xl p-6 border border-white/10">
+            <h3 className="text-[10px] font-black text-[#D4AF37] uppercase tracking-wider mb-4 leading-tight">
+               Mengapa berqurban bersama indopalmQu?
             </h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                {[
@@ -187,11 +187,11 @@ Terima Kasih`;
                  'Harga lebih murah',
                  'Free ongkir Jabodetabek',
                  'Berhadiah Umroh',
-                 'Garansi bobot timbang',
+                 'Alamat pengiriman jelas',
                  'Hewan Qurban terawat',
                ].map((item, i) => (
-                 <li key={i} className="flex items-start gap-2 text-[8px] font-bold text-slate-700 uppercase tracking-tight">
-                    <CheckCircle2 className="w-3 h-3 text-orange-600 flex-none" />
+                 <li key={i} className="flex items-start gap-2 text-[8px] font-bold text-[#FDF5E6]/50 uppercase tracking-tight">
+                    <CheckCircle2 className="w-3 h-3 text-[#D4AF37] flex-none" />
                     {item}
                  </li>
                ))}
@@ -201,7 +201,7 @@ Terima Kasih`;
           {/* Action Button */}
           <button 
             onClick={handleWhatsApp}
-            className="w-full bg-orange-900 border-b-4 border-orange-950 hover:bg-orange-950 active:border-b-0 text-white py-4 rounded-xl font-black text-lg flex items-center justify-center gap-3 shadow-lg transition-all"
+            className="w-full bg-[#D4AF37] border-b-4 border-[#B8860B] hover:bg-[#B8860B] active:border-b-0 text-black py-4 rounded-xl font-black text-lg flex items-center justify-center gap-3 shadow-lg transition-all"
           >
             <MessageSquare className="w-6 h-6" />
             Tanya Stock via WhatsApp
