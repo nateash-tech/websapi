@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-const ProductGrid = ({ categoryId, farmName, searchQuery }) => {
+const ProductGrid = ({ categoryId, farmName, searchQuery, limit }) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ const ProductGrid = ({ categoryId, farmName, searchQuery }) => {
     <div className="max-w-7xl mx-auto px-4 py-8 w-full">
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {products.map((product) => (
+        {(limit ? products.slice(0, limit) : products).map((product) => (
           <motion.div
             key={product.id}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -99,7 +99,7 @@ const ProductGrid = ({ categoryId, farmName, searchQuery }) => {
         ))}
       </div>
 
-      {products.length === 0 && (
+      {!limit && products.length === 0 && (
         <div className="w-full py-20 text-center text-slate-400 font-bold">
           Belum ada produk yang tersedia untuk filter ini.
         </div>
