@@ -42,13 +42,13 @@ const FeaturePanel = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid grid-cols-4 gap-2 sm:gap-4"
+        className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4"
       >
-        {features.map((f) => (
+        {features.map((f, index) => (
           <motion.div
             key={f.title}
             variants={item}
-            className="bg-[#B47B00] rounded-2xl px-1 sm:px-5 py-4 sm:py-6 flex flex-col items-center text-center gap-1 sm:gap-3 shadow-xl border border-white/10 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-default"
+            className={`bg-[#B47B00] rounded-2xl px-1 sm:px-5 py-4 sm:py-6 flex-col items-center text-center gap-1 sm:gap-3 shadow-xl border border-white/10 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-default ${index === 3 ? 'hidden sm:flex' : 'flex'}`}
           >
             <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center text-xl sm:text-3xl shadow-inner border border-white/5 text-[#FCD34D]">
               {f.icon}
