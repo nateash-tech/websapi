@@ -10,6 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Ekonomis');
   const [selectedFarm, setSelectedFarm] = useState('Semua Kandang');
@@ -36,6 +37,7 @@ const Navbar = () => {
   const handleSearchClick = () => {
     navigate(`/catalog?search=${encodeURIComponent(searchQuery)}&category=${encodeURIComponent(selectedCategory)}&farm=${encodeURIComponent(selectedFarm)}`);
     setFilterOpen(false);
+    setSearchOpen(false);
   };
 
   return (
@@ -45,21 +47,85 @@ const Navbar = () => {
         : 'bg-[#B47B00] border-b border-[#8B4513]/20'
     }`}>
       <div className="max-w-7xl mx-auto px-4 py-3">
-        
-        {/* Main Row */}
-        <div className="flex items-center gap-2 sm:gap-3">
+
+        {/* ── MOBILE HEADER ── */}
+        <div className="flex sm:hidden items-center gap-2">
+
+          {/* Logo + Brand */}
+          <Link to="/" className="flex-1 flex items-center gap-2">
+            <img src="/Logo%20Farm.png" alt="Indopalm Logo" className="h-9 w-auto" />
+            <span className="text-xl font-black text-white tracking-tighter leading-none">
+              Indopalm<span className="text-[#FCD34D]">Sapi</span>
+            </span>
+          </Link>
+
+          {/* Filter Button (mobile) */}
+          <button
+            onClick={() => setFilterOpen(!filterOpen)}
+            className={`flex items-center p-2.5 font-extrabold rounded-xl border-b-4 transition-all ${
+              filterOpen
+                ? 'bg-[#042F2E] text-white border-black'
+                : 'bg-[#064E3B] text-white border-[#042F2E] hover:bg-[#065F46]'
+            }`}
+          >
+            <Filter className="h-5 w-5" />
+          </button>
+
+          {/* Search Toggle Button (mobile) */}
+          <button
+            onClick={() => setSearchOpen(!searchOpen)}
+            className="p-2.5 bg-[#064E3B] text-white rounded-xl shadow-lg shadow-black/10 hover:bg-[#065F46] transition-all"
+          >
+            {searchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
+          </button>
+
+        </div>
+
+        {/* Search Bar (mobile, toggle) */}
+        <AnimatePresence>
+          {searchOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              className="overflow-hidden sm:hidden"
+            >
+              <div className="flex gap-2 pt-2">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearchClick()}
+                  className="flex-1 bg-white border border-black/10 rounded-xl px-4 py-2 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#064E3B]/30 transition-all text-sm font-medium"
+                  placeholder="Cari Produk..."
+                  autoFocus
+                />
+                <button
+                  onClick={handleSearchClick}
+                  className="p-2.5 bg-[#064E3B] text-white rounded-xl hover:bg-[#065F46] transition-all"
+                >
+                  <Search className="h-5 w-5" />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ── DESKTOP HEADER ── */}
+        <div className="hidden sm:flex items-center gap-2 sm:gap-3">
 
           {/* Logo */}
           <Link to="/">
             <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0 cursor-pointer flex items-center gap-2">
               <img src="/Logo%20Farm.png" alt="Indopalm Logo" className="h-10 w-auto" />
-              <span className="hidden sm:block text-2xl font-black text-white tracking-tighter">
-                indopalm<span className="text-[#FCD34D]">Qu</span>
+              <span className="text-2xl font-black text-white tracking-tighter">
+                Indopalm<span className="text-[#FCD34D]">Sapi</span>
               </span>
             </motion.div>
           </Link>
 
-          {/* Search Input */}
+          {/* Search Input (desktop always visible) */}
           <div className="flex-1 relative">
             <input
               type="text"
@@ -80,20 +146,19 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Filter Button */}
+          {/* Filter Button (desktop) */}
           <button
             onClick={() => setFilterOpen(!filterOpen)}
-            className={`flex items-center gap-2 px-3 sm:px-5 py-3 font-extrabold rounded-xl border-b-4 transition-all ${
+            className={`flex items-center gap-2 px-5 py-3 font-extrabold rounded-xl border-b-4 transition-all ${
               filterOpen
                 ? 'bg-[#042F2E] text-white border-black'
                 : 'bg-[#064E3B] text-white border-[#042F2E] hover:bg-[#065F46]'
             }`}
           >
-            <Filter className="h-5 w-5 sm:hidden" />
-            <span className="hidden sm:inline">Filter</span>
+            <span>Filter</span>
           </button>
 
-          {/* Search Button */}
+          {/* Search Button (desktop) */}
           <button
             onClick={handleSearchClick}
             className="p-3 bg-[#064E3B] text-white rounded-xl shadow-lg shadow-black/10 hover:bg-[#065F46] transition-all"
@@ -102,6 +167,7 @@ const Navbar = () => {
           </button>
 
         </div>
+
 
         {/* Filter Row */}
         <AnimatePresence>

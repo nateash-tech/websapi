@@ -52,7 +52,7 @@ const FarmList = ({ onSelectFarm, activeFarm }) => {
       >
         <div className="flex flex-col items-center mb-10 md:mb-14">
           <p className="text-[10px] md:text-sm font-[1000] text-white/70 uppercase tracking-[0.4em] mb-4 text-center">
-            KANDANG KOLABORASI MITRA BISNIS INDOPALMQU
+            KANDANG KOLABORASI MITRA BISNIS INDOPALMSAPI
           </p>
           <div className="w-24 h-2 bg-white/30 rounded-full"></div>
         </div>

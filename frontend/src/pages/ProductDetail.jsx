@@ -55,7 +55,7 @@ const ProductDetail = () => {
 
   const handleWhatsApp = () => {
     const phone = "6281545842432";
-    const message = `Hallo Admin indopalmQu ..
+    const message = `Hallo Admin IndopalmSapi ..
 
 Ingin Bertanya Tentang Hewan Qurban :
 Kode : ${product.kode_unik}
@@ -104,7 +104,7 @@ Terima Kasih`;
                {product.image_url ? (
                  <img src={product.image_url} alt={product.name} className="w-full h-full object-cover" />
                ) : (
-                 <div className="w-full h-full flex items-center justify-center bg-[#D4AF37]/5 text-4xl text-[#D4AF37]/20 font-black">indopalmQu</div>
+                 <div className="w-full h-full flex items-center justify-center bg-[#D4AF37]/5 text-4xl text-[#D4AF37]/20 font-black">IndopalmSapi</div>
                )}
              </div>
           </div>
@@ -116,7 +116,7 @@ Terima Kasih`;
                 </div>
                 <div className="h-0.5 w-8 bg-[#D4AF37]/30"></div>
                 <div className="w-7 h-7 rounded-lg bg-white/5 p-1 border border-white/10 italic font-black text-[#FDF5E6] text-[6px] flex items-center justify-center text-center">
-                    indopalmQu
+                    IndopalmSapi
                 </div>
              </div>
              <p className="text-[6px] font-bold text-slate-400 uppercase tracking-[0.4em]">#IngatKurban #SolusiQurban</p>
@@ -172,14 +172,14 @@ Terima Kasih`;
                </li>
                <li className="flex items-center gap-2 text-[10px] font-bold text-[#FDF5E6]/70">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                  Video Kambing & Domba : <a href="#" className="text-blue-400 hover:underline">t.me/solusiqurbandopalmqu</a>
+                  Video Kambing & Domba : <a href="#" className="text-blue-400 hover:underline">t.me/solusiqurbandopalmsapi</a>
                </li>
             </ul>
           </section>
 
           <section className="bg-white/5 rounded-2xl p-6 border border-white/10">
             <h3 className="text-[10px] font-black text-[#D4AF37] uppercase tracking-wider mb-4 leading-tight">
-               Mengapa berqurban bersama indopalmQu?
+               Mengapa berqurban bersama IndopalmSapi?
             </h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                {[

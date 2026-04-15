@@ -13,7 +13,7 @@ const Hero = () => {
       >
         <motion.img
           src="/my_banner.png"
-          alt="indopalmQu Banner"
+          alt="IndopalmSapi Banner"
           className="w-full h-auto block"
           animate={{ scale: [1, 1.012, 1] }}
           transition={{

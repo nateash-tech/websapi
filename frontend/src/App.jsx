@@ -35,11 +35,11 @@ function App() {
         <footer className="py-12 bg-[#B47B00] border-t border-[#8B4513]/20 text-center">
           <div className="mb-4">
             <span className="text-6xl font-black text-white tracking-tighter select-none">
-              indopalm<span className="text-[#FCD34D]">Qu</span>
+              Indopalm<span className="text-[#FCD34D]">Sapi</span>
             </span>
           </div>
           <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.5em]">
-            © 2026 indopalmQu • Premium Sacrificial Animals
+            © 2026 IndopalmSapi • Premium Sacrificial Animals
           </p>
         </footer>
       </div>

@@ -95,7 +95,7 @@ app.get('/api/farms', async (req, res) => {
 
 // Health check
 app.get('/', (req, res) => {
-  res.send('indopalmQu API (Postgres) is running...');
+  res.send('IndopalmSapi API (Postgres) is running...');
 });
 
 // Pool error handling
